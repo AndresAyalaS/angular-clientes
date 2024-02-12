@@ -1,0 +1,49 @@
+<div class="formulario">
+  <h2 class="center">{{nombreForm}}</h2>
+  <div style="display: flex">
+    <div class="" style="width: 50%">
+      <label for="id">ID:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="id"
+        disabled
+        [(ngModel)]="newItemId"
+      />
+    </div>
+    <div class="" style="width: 50%">
+      <label for="nombre">Nombre:</label>
+      <input type="text" [(ngModel)]="newItemNombre" />
+    </div>
+  </div>
+
+  <div style="display: flex">
+    <div class="" style="width: 50%">
+      <label for="key">Shared Key</label>
+      <input type="text" [(ngModel)]="newItemKey" />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="text" [(ngModel)]="newItemEmail" />
+    </div>
+  </div>
+
+  <div style="display: flex">
+    <div class="" style="width: 50%">
+      <label for="telefono">Telefono</label>
+      <input type="text" [(ngModel)]="newItemTelefono" />
+    </div>
+    <div style="width: 50%">
+      <label for="fechaIngreso">Fecha de ingreso</label>
+      <input type="date" [(ngModel)]="newItemFechaIngreso" />
+    </div>
+  </div>
+
+  <div class="center" style="display: inherit">
+    <button class="btnVolver" (click)="volver()">Volver</button>
+    @if (btnReset) {
+      <button class="btnReiniciar" (click)="resetForm()">Reiniciar</button>
+    }
+    <button class="btnEnviar" (click)="enviarItem()">Enviar Datos</button>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tabla de Clientes</title>
+  </head>
+  <body>
+    <div class="lateral">
+      <header></header>
+      <ul class="menuVert">
+        <a href="/" class="fa fa-fw fa-user">CLIENTES</a>
+      </ul>
+    </div>
+    <div class="container" style="display: flex">
+      <div
+        class="container"
+        style="width: 80%; padding-left: 15rem; padding-top: 4rem"
+      >
+        <div class="container">
+          <div class="container">
+            <button class="btnAgregar  fa fa-plus" (click)="agregarItem()">Agregar</button>
+            <button class="btnAgregar fa fa-download" (click)="export()">Export</button>
+          </div>
+          <div>
+            <form class="buscador">
+              <input
+                type="text"
+                (input)="filtro(txtUsuarioKey.value)"                
+                placeholder="Buscar Cliente..."
+                #txtUsuarioKey
+              />
+            </form>
+          </div>
+        </div>
+        <table class="">
+          <tr>
+            <th>Shared Key</th>
+            <th>Business ID</th>
+            <th>E-mail</th>
+            <th>Phone</th>
+            <th>Fecha de ingreso</th>
+            <th>Acciones</th>
+          </tr>
+          @for (item of itemsFiltrados; track item ) {
+          <tr>
+            <td>{{ item.usuario_key }}</td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.telefono }}</td>
+            <td>{{ item.fecha_ingreso | date : "mediumDate" }}</td>
+            <td class="acciones">
+              <a class="btnEditar" href="/editar/{{ item.id }}"> Editar</a>
+              <button class="btnEliminar" (click)="confirmarEliminar(item)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+          }
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
