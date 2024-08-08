@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientesService } from '../../service/cliente.service';
 import { DatePipe } from '@angular/common';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-list-product',
@@ -27,7 +26,7 @@ export class ListClienteComponent implements OnInit {
   ngOnInit(): void {
     this.loadItems();
   }
-  
+
   loadItems(): void {
     this.clienteService.getItems().subscribe((response) => {
       this.items = response;
